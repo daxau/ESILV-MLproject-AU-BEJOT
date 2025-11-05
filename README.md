@@ -2,7 +2,7 @@
 Scripts Python for ML project
 
 # in notebooks folder
-We sotree the notebooks to be executed sequentially
+We store the notebooks to be executed sequentially
 >step1_ML_Dataset : to generate the required datasets 
 >Step2_ML_EDA_Dataset : to perform the Exploratory Dataset Analysis, then create the cleaned dataset
 >Step2_ML_EDA_DatasetClean : to perform the Exploratory Dataset Analysis on the cleaned dataset
