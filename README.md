@@ -62,10 +62,12 @@ The project is structured into Jupyter Notebooks that must be executed **in sequ
 
 | Step | Notebook | Purpose |
 |------|----------|---------|
-| **1** | `step1_ML_Dataset.ipynb` | Retrieve raw market & macro data; generates `Full_dataset_reference.csv` and `Cleaned_Features_for_ML.csv` |
-| **2** | `Step2_ML_EDA_Dataset.ipynb` | Run Exploratory Data Analysis (EDA) on raw dataset |
-| **3** | `Step3_ML_FeatureSelection_KBest.ipynb` | Feature selection based on ANOVA method - alternative dataset |
+| **1** | `step1_ML_Dataset.ipynb` | Retrieve raw market & macro data; generates `Full_dataset_reference.csv ` |
+| **2** | `Step2_ML_EDA_Dataset.ipynb` | Run Exploratory Data Analysis (EDA) on raw dataset; generates `Cleaned_Features_for_ML.csv ` |
+| **3** | `Step3_ML_FeatureSelection_KBest.ipynb` | Feature selection based on ANOVA method - alternative dataset, generates `Cleaned_Features_for_ML_20ANOVA.csv ` |
 | **4** | `Step4_ML_ModelClassification.ipynb` | Model training & classification experiments |
+| **5** | `Step5_ML_Model_ARIMA_8D_forecast.ipynb` | Model training & classification experiments introduced ARIMA model forecast and 8-day rolling direction forecast |
+| **6** | `Step6_ML_Ultimate_test.ipynb` | Advanced Model training & classification experiments - ARIMA +20 features +LSTM +8Day rolling forecast |
 | **5** | `dashboard.py` | Visualization Dashboard and results interpretation |
 
 ---
