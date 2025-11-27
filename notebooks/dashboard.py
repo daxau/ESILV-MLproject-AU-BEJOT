@@ -13,13 +13,6 @@ from pathlib import Path
 # ===============================================================
 # CORRECT PATH CONFIGURATION (dashboard.py is in /notebooks)
 # ===============================================================
-# File structure:
-#   ESILV-MLproject-AU-BEJOT/
-#       data/
-#       notebooks/dashboard.py   <-- this file
-#
-# So data folder = parent directory + /data
-# ===============================================================
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
@@ -30,9 +23,6 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 @st.cache_data
 def load_datasets():
-    """
-    Load datasets from /data folder.
-    """
     df_clean = None
     df_anova = None
 
@@ -49,18 +39,36 @@ def load_datasets():
 
 @st.cache_data
 def load_model_results():
-    """
-    Load model_results.json from /data.
-    """
     json_path = DATA_DIR / "model_results.json"
-
     if not json_path.exists():
         return None
 
     with open(json_path, "r") as f:
-        results = json.load(f)
+        return json.load(f)
 
-    return results
+
+# ⭐ NEW — FEATURE RANKINGS LOADER
+@st.cache_data
+def load_feature_rankings():
+    """
+    Loads:
+      - top20_features.csv
+      - feature_ranking_full.csv
+    from /data folder
+    """
+    top20_df = None
+    full_df = None
+
+    top20_path = DATA_DIR / "top20_features.csv"
+    full_path = DATA_DIR / "feature_ranking_full.csv"
+
+    if top20_path.exists():
+        top20_df = pd.read_csv(top20_path)
+
+    if full_path.exists():
+        full_df = pd.read_csv(full_path)
+
+    return top20_df, full_df
 
 
 # ===============================================================
@@ -68,9 +76,6 @@ def load_model_results():
 # ===============================================================
 
 def build_results_table(results):
-    """
-    Build ranked table of model results.
-    """
     rows = []
 
     for model_name, res in results.items():
@@ -83,7 +88,7 @@ def build_results_table(results):
         time_sec = res.get("computation_time_sec", None)
         acc = report.get("accuracy", None)
 
-        # Positive class key detection
+        # Positive class key
         pos_key = "1" if "1" in report else None
         if not pos_key:
             numeric_keys = [k for k in report.keys() if k.isdigit()]
@@ -96,13 +101,12 @@ def build_results_table(results):
             recall_1 = report[pos_key].get("recall")
             f1_1 = report[pos_key].get("f1-score")
 
-        # Confusion matrix values
+        # Confusion matrix
         tn = fp = fn = tp = None
         if isinstance(cm, np.ndarray) and cm.shape == (2, 2):
             tn, fp, fn, tp = cm.ravel()
 
         rows.append({
-            "Dataset": res.get("dataset_label", "Unknown"),  # <--- added
             "Model": model_name,
             "Accuracy": acc,
             "Precision (class 1)": precision_1,
@@ -117,8 +121,7 @@ def build_results_table(results):
             "TP": tp
         })
 
-    df_results = pd.DataFrame(rows)
-    return df_results
+    return pd.DataFrame(rows)
 
 
 # ===============================================================
@@ -142,7 +145,6 @@ def render_overview_page(df_clean, df_anova):
 
     st.write(f"**Dataset shape:** {df.shape[0]:,} rows × {df.shape[1]:,} columns")
 
-    # Column selector
     cols = st.multiselect(
         "Select columns to display:",
         df.columns.tolist(),
@@ -153,15 +155,12 @@ def render_overview_page(df_clean, df_anova):
         st.info("Please select at least one column.")
         return
 
-    # Show sample
     st.subheader("🔍 Data Preview")
     st.dataframe(df[cols].head())
 
-    # Summary statistics
     if st.checkbox("Show summary statistics"):
         st.write(df[cols].describe(include="all"))
 
-    # Correlation matrix
     if st.checkbox("Show correlation matrix (numeric columns only)"):
 
         numeric_cols = df[cols].select_dtypes(include=[np.number])
@@ -189,31 +188,54 @@ def render_model_results_page(results):
         return
 
     df_results = build_results_table(results)
-
-    # Sort by AUC
-    df_sorted = df_results.sort_values(
-        by="ROC-AUC", ascending=False
-    ).reset_index(drop=True)
-
-    st.subheader("Ranked Model Performance (AUC)")
+    df_sorted = df_results.sort_values(by="ROC-AUC", ascending=False)
 
     styled = df_sorted.style.background_gradient(
         cmap="Blues",
         subset=[
-            "Accuracy",
-            "Precision (class 1)",
-            "Recall (class 1)",
-            "F1-score (class 1)",
-            "F2-score",
-            "ROC-AUC",
+            "Accuracy", "Precision (class 1)", "Recall (class 1)",
+            "F1-score (class 1)", "F2-score", "ROC-AUC",
             "Computation Time (sec)"
         ]
     )
 
-    if "Dataset" in df_sorted.columns:
-    st.write(f"📌 Dataset used for model results: **{df_sorted['Dataset'].iloc[0]}**")
-    
     st.dataframe(styled)
+
+
+# ===============================================================
+# ⭐ NEW PAGE: FEATURE SELECTION (ANOVA)
+# ===============================================================
+
+def render_feature_selection_page():
+    st.title("📊 Feature Selection (ANOVA F-score)")
+
+    top20_df, full_df = load_feature_rankings()
+
+    if top20_df is None and full_df is None:
+        st.warning("No feature ranking files found in /data.")
+        st.info("Expected files: top20_features.csv, feature_ranking_full.csv")
+        return
+
+    # --- Display Top-20 ---
+    if top20_df is not None:
+        st.subheader("🏅 Top-20 Selected Features")
+        st.dataframe(top20_df)
+
+    st.markdown("---")
+
+    # --- Display Full Ranking ---
+    if full_df is not None:
+
+        st.subheader("📋 Full ANOVA Feature Ranking")
+        st.dataframe(
+            full_df.sort_values("ANOVA_F_score", ascending=False)
+        )
+
+        # Bar chart for top-20
+        st.subheader("📈 Top-20 Features — F-score Bar Chart")
+
+        chart_df = full_df.sort_values("ANOVA_F_score", ascending=False).head(20)
+        st.bar_chart(chart_df.set_index("Feature")["ANOVA_F_score"])
 
 
 # ===============================================================
@@ -229,16 +251,18 @@ def main():
     st.sidebar.title("Navigation")
     page = st.sidebar.radio(
         "Go to:",
-        ["Overview", "Model Results"]
+        ["Overview", "Model Results", "Feature Selection (ANOVA)"]   # ⭐ NEW
     )
 
     if page == "Overview":
         render_overview_page(df_clean, df_anova)
-    else:
+
+    elif page == "Model Results":
         render_model_results_page(results)
+
+    else:  # ⭐ NEW PAGE
+        render_feature_selection_page()
 
 
 if __name__ == "__main__":
     main()
-
-
