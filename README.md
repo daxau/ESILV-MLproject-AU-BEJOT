@@ -64,9 +64,9 @@ The project is structured into Jupyter Notebooks that must be executed **in sequ
 |------|----------|---------|
 | **1** | `step1_ML_Dataset.ipynb` | Retrieve raw market & macro data; generates `Full_dataset_reference.csv` and `Cleaned_Features_for_ML.csv` |
 | **2** | `Step2_ML_EDA_Dataset.ipynb` | Run Exploratory Data Analysis (EDA) on raw dataset |
-| **3** | `Step3_ML_EDA_DatasetClean.ipynb` | EDA on the cleaned dataset |
+| **3** | `Step3_ML_FeatureSelection_KBest.ipynb` | Feature selection based on ANOVA method - alternative dataset |
 | **4** | `Step4_ML_ModelClassification.ipynb` | Model training & classification experiments |
-| **5** | `Step5_ML_Results_Visualization.ipynb` | Visualization and results interpretation |
+| **5** | `dashboard.py` | Visualization Dashboard and results interpretation |
 
 ---
 
