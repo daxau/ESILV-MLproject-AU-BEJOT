@@ -67,7 +67,7 @@ The project is structured into Jupyter Notebooks that must be executed **in sequ
 | **3** | `Step3_ML_FeatureSelection_KBest.ipynb` | Feature selection based on ANOVA method - alternative dataset, generates `Cleaned_Features_for_ML_20ANOVA.csv ` |
 | **4** | `Step4_ML_ModelClassification.ipynb` | Model training & classification experiments |
 | **5** | `Step5_ML_Model_8D_forecast.ipynb` | Model training & classification experiments introduced 8-day rolling direction forecast |
-| **6** | `Step6_ML_Ultimate_test.ipynb` | Advanced Model training & classification experiments - ARIMA +20 features +LSTM +8Day rolling forecast |
+| **6** | `Step6_ML_Ultimate_test.ipynb` | Advanced Model training & classification experiments - ARIMA +8Day rolling forecast |
 | **7** | `dashboard.py` | Visualization Dashboard and results interpretation |
 
 ### **folder/ data**: it stores every datasets
