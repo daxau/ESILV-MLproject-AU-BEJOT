@@ -1,0 +1,561 @@
+{
+    "LR": {
+        "confusion_matrix": [
+            [
+                216,
+                31
+            ],
+            [
+                32,
+                315
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.8709677419354839,
+                "recall": 0.8744939271255061,
+                "f1-score": 0.8727272727272727,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.9104046242774566,
+                "recall": 0.9077809798270894,
+                "f1-score": 0.9090909090909091,
+                "support": 347.0
+            },
+            "accuracy": 0.8939393939393939,
+            "macro avg": {
+                "precision": 0.8906861831064703,
+                "recall": 0.8911374534762977,
+                "f1-score": 0.8909090909090909,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.8940057859972087,
+                "recall": 0.8939393939393939,
+                "f1-score": 0.8939700030609121,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.8911199523970645,
+        "f2_score": 0.9083044982698962,
+        "computation_time_sec": 0.059929609298706055,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "KNN": {
+        "confusion_matrix": [
+            [
+                219,
+                28
+            ],
+            [
+                223,
+                124
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.49547511312217196,
+                "recall": 0.8866396761133604,
+                "f1-score": 0.6357039187227866,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.8157894736842105,
+                "recall": 0.3573487031700288,
+                "f1-score": 0.4969939879759519,
+                "support": 347.0
+            },
+            "accuracy": 0.5774410774410774,
+            "macro avg": {
+                "precision": 0.6556322934031913,
+                "recall": 0.6219941896416946,
+                "f1-score": 0.5663489533493693,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.6825947816659891,
+                "recall": 0.5774410774410774,
+                "f1-score": 0.5546730332528343,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.6833938092849059,
+        "f2_score": 0.4025974025974026,
+        "computation_time_sec": 0.5380346775054932,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "CART": {
+        "confusion_matrix": [
+            [
+                204,
+                43
+            ],
+            [
+                38,
+                309
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.8429752066115702,
+                "recall": 0.8259109311740891,
+                "f1-score": 0.8343558282208589,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.8778409090909091,
+                "recall": 0.8904899135446686,
+                "f1-score": 0.8841201716738197,
+                "support": 347.0
+            },
+            "accuracy": 0.8636363636363636,
+            "macro avg": {
+                "precision": 0.8604080578512396,
+                "recall": 0.8582004223593789,
+                "f1-score": 0.8592379999473393,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.8633428812922613,
+                "recall": 0.8636363636363636,
+                "f1-score": 0.86342691774641,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.8191030113523667,
+        "f2_score": 0.8879310344827587,
+        "computation_time_sec": 0.04297161102294922,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "SVC": {
+        "confusion_matrix": [
+            [
+                219,
+                28
+            ],
+            [
+                44,
+                303
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.8326996197718631,
+                "recall": 0.8866396761133604,
+                "f1-score": 0.8588235294117647,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.9154078549848943,
+                "recall": 0.8731988472622478,
+                "f1-score": 0.8938053097345132,
+                "support": 347.0
+            },
+            "accuracy": 0.8787878787878788,
+            "macro avg": {
+                "precision": 0.8740537373783788,
+                "recall": 0.8799192616878041,
+                "f1-score": 0.8763144195731389,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.8810157100394083,
+                "recall": 0.8787878787878788,
+                "f1-score": 0.8792590138764005,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.8934184274696939,
+        "f2_score": 0.881326352530541,
+        "computation_time_sec": 1.0036191940307617,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "MLP": {
+        "confusion_matrix": [
+            [
+                40,
+                207
+            ],
+            [
+                9,
+                338
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.8163265306122449,
+                "recall": 0.16194331983805668,
+                "f1-score": 0.2702702702702703,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.6201834862385321,
+                "recall": 0.9740634005763689,
+                "f1-score": 0.757847533632287,
+                "support": 347.0
+            },
+            "accuracy": 0.6363636363636364,
+            "macro avg": {
+                "precision": 0.7182550084253885,
+                "recall": 0.5680033602072128,
+                "f1-score": 0.5140589019512787,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.7017446511548739,
+                "recall": 0.6363636363636364,
+                "f1-score": 0.5551007591366336,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.8142960482563092,
+        "f2_score": 0.8742886704604242,
+        "computation_time_sec": 2.4147567749023438,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "ABR": {
+        "confusion_matrix": [
+            [
+                204,
+                43
+            ],
+            [
+                35,
+                312
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.8535564853556485,
+                "recall": 0.8259109311740891,
+                "f1-score": 0.8395061728395061,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.8788732394366198,
+                "recall": 0.899135446685879,
+                "f1-score": 0.8888888888888888,
+                "support": 347.0
+            },
+            "accuracy": 0.8686868686868687,
+            "macro avg": {
+                "precision": 0.8662148623961341,
+                "recall": 0.862523188929984,
+                "f1-score": 0.8641975308641975,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.8683459023019399,
+                "recall": 0.8686868686868687,
+                "f1-score": 0.8683543251444485,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.8844928770607522,
+        "f2_score": 0.8950086058519794,
+        "computation_time_sec": 2.6950724124908447,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "GBR": {
+        "confusion_matrix": [
+            [
+                204,
+                43
+            ],
+            [
+                36,
+                311
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.85,
+                "recall": 0.8259109311740891,
+                "f1-score": 0.837782340862423,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.8785310734463276,
+                "recall": 0.8962536023054755,
+                "f1-score": 0.8873038516405135,
+                "support": 347.0
+            },
+            "accuracy": 0.867003367003367,
+            "macro avg": {
+                "precision": 0.8642655367231638,
+                "recall": 0.8610822667397823,
+                "f1-score": 0.8625430962514682,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.8666671422321138,
+                "recall": 0.867003367003367,
+                "f1-score": 0.8667115735896912,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.8823460780081438,
+        "f2_score": 0.8926521239954076,
+        "computation_time_sec": 6.177170276641846,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "RFR": {
+        "confusion_matrix": [
+            [
+                219,
+                28
+            ],
+            [
+                37,
+                310
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.85546875,
+                "recall": 0.8866396761133604,
+                "f1-score": 0.8707753479125249,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.9171597633136095,
+                "recall": 0.8933717579250721,
+                "f1-score": 0.9051094890510949,
+                "support": 347.0
+            },
+            "accuracy": 0.8905723905723906,
+            "macro avg": {
+                "precision": 0.8863142566568047,
+                "recall": 0.8900057170192162,
+                "f1-score": 0.8879424184818099,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.8915071028953241,
+                "recall": 0.8905723905723906,
+                "f1-score": 0.8908324977022282,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.9003663559252821,
+        "f2_score": 0.8980301274623407,
+        "computation_time_sec": 2.4917445182800293,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "ETR": {
+        "confusion_matrix": [
+            [
+                216,
+                31
+            ],
+            [
+                32,
+                315
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.8709677419354839,
+                "recall": 0.8744939271255061,
+                "f1-score": 0.8727272727272727,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.9104046242774566,
+                "recall": 0.9077809798270894,
+                "f1-score": 0.9090909090909091,
+                "support": 347.0
+            },
+            "accuracy": 0.8939393939393939,
+            "macro avg": {
+                "precision": 0.8906861831064703,
+                "recall": 0.8911374534762977,
+                "f1-score": 0.8909090909090909,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.8940057859972087,
+                "recall": 0.8939393939393939,
+                "f1-score": 0.8939700030609121,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.9010022284707557,
+        "f2_score": 0.9083044982698962,
+        "computation_time_sec": 0.8291754722595215,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "VOTING_SOFT": {
+        "confusion_matrix": [
+            [
+                216,
+                31
+            ],
+            [
+                32,
+                315
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.8709677419354839,
+                "recall": 0.8744939271255061,
+                "f1-score": 0.8727272727272727,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.9104046242774566,
+                "recall": 0.9077809798270894,
+                "f1-score": 0.9090909090909091,
+                "support": 347.0
+            },
+            "accuracy": 0.8939393939393939,
+            "macro avg": {
+                "precision": 0.8906861831064703,
+                "recall": 0.8911374534762977,
+                "f1-score": 0.8909090909090909,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.8940057859972087,
+                "recall": 0.8939393939393939,
+                "f1-score": 0.8939700030609121,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.8978170320503098,
+        "f2_score": 0.9083044982698962,
+        "computation_time_sec": 3.537090301513672,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "BAGGING_CART": {
+        "confusion_matrix": [
+            [
+                216,
+                31
+            ],
+            [
+                32,
+                315
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.8709677419354839,
+                "recall": 0.8744939271255061,
+                "f1-score": 0.8727272727272727,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.9104046242774566,
+                "recall": 0.9077809798270894,
+                "f1-score": 0.9090909090909091,
+                "support": 347.0
+            },
+            "accuracy": 0.8939393939393939,
+            "macro avg": {
+                "precision": 0.8906861831064703,
+                "recall": 0.8911374534762977,
+                "f1-score": 0.8909090909090909,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.8940057859972087,
+                "recall": 0.8939393939393939,
+                "f1-score": 0.8939700030609121,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.9015155934615967,
+        "f2_score": 0.9083044982698962,
+        "computation_time_sec": 5.6472320556640625,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "BAGGING_LR": {
+        "confusion_matrix": [
+            [
+                216,
+                31
+            ],
+            [
+                32,
+                315
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.8709677419354839,
+                "recall": 0.8744939271255061,
+                "f1-score": 0.8727272727272727,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.9104046242774566,
+                "recall": 0.9077809798270894,
+                "f1-score": 0.9090909090909091,
+                "support": 347.0
+            },
+            "accuracy": 0.8939393939393939,
+            "macro avg": {
+                "precision": 0.8906861831064703,
+                "recall": 0.8911374534762977,
+                "f1-score": 0.8909090909090909,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.8940057859972087,
+                "recall": 0.8939393939393939,
+                "f1-score": 0.8939700030609121,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.8887164708490356,
+        "f2_score": 0.9083044982698962,
+        "computation_time_sec": 3.17061448097229,
+        "dataset_label": "APPLE_TREND_8D"
+    },
+    "STACKING": {
+        "confusion_matrix": [
+            [
+                211,
+                36
+            ],
+            [
+                39,
+                308
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.844,
+                "recall": 0.854251012145749,
+                "f1-score": 0.8490945674044266,
+                "support": 247.0
+            },
+            "1": {
+                "precision": 0.8953488372093024,
+                "recall": 0.8876080691642652,
+                "f1-score": 0.8914616497829233,
+                "support": 347.0
+            },
+            "accuracy": 0.8737373737373737,
+            "macro avg": {
+                "precision": 0.8696744186046512,
+                "recall": 0.870929540655007,
+                "f1-score": 0.8702781085936749,
+                "support": 594.0
+            },
+            "weighted avg": {
+                "precision": 0.8739967112990369,
+                "recall": 0.8737373737373737,
+                "f1-score": 0.8738443613191376,
+                "support": 594.0
+            }
+        },
+        "roc_auc": 0.8869663629257136,
+        "f2_score": 0.8891454965357968,
+        "computation_time_sec": 47.26891851425171,
+        "dataset_label": "APPLE_TREND_8D"
+    }
+}
