@@ -47,7 +47,7 @@ def load_model_results():
         return json.load(f)
 
 
-# ⭐ NEW — FEATURE RANKINGS LOADER
+# NEW — FEATURE RANKINGS LOADER
 @st.cache_data
 def load_feature_rankings():
     """
@@ -130,7 +130,7 @@ def build_results_table(results):
 
 def render_overview_page(df_clean, df_anova):
 
-    st.title("📊 Dataset Overview")
+    st.title("Dataset Overview")
 
     dataset_choice = st.radio(
         "Select dataset to explore:",
@@ -155,7 +155,7 @@ def render_overview_page(df_clean, df_anova):
         st.info("Please select at least one column.")
         return
 
-    st.subheader("🔍 Data Preview")
+    st.subheader("Data Preview")
     st.dataframe(df[cols].head())
 
     if st.checkbox("Show summary statistics"):
@@ -168,7 +168,7 @@ def render_overview_page(df_clean, df_anova):
         if numeric_cols.shape[1] < 2:
             st.warning("Select at least two numeric columns.")
         else:
-            st.subheader("📈 Correlation Matrix")
+            st.subheader("Correlation Matrix")
 
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.heatmap(numeric_cols.corr(), cmap="Blues", annot=False, ax=ax)
@@ -181,7 +181,7 @@ def render_overview_page(df_clean, df_anova):
 
 def render_model_results_page(results):
 
-    st.title("🏆 Model Performance — Ranked by AUC")
+    st.title("Model Performance — Ranked by AUC")
 
     if results is None:
         st.warning("model_results.json not found in /data folder.")
@@ -203,11 +203,11 @@ def render_model_results_page(results):
 
 
 # ===============================================================
-# ⭐ NEW PAGE: FEATURE SELECTION (ANOVA)
+# NEW PAGE: FEATURE SELECTION (ANOVA)
 # ===============================================================
 
 def render_feature_selection_page():
-    st.title("📊 Feature Selection (ANOVA F-score)")
+    st.title("Feature Selection (ANOVA F-score)")
 
     top20_df, full_df = load_feature_rankings()
 
@@ -218,7 +218,7 @@ def render_feature_selection_page():
 
     # --- Display Top-20 ---
     if top20_df is not None:
-        st.subheader("🏅 Top-20 Selected Features")
+        st.subheader("Top-20 Selected Features")
         st.dataframe(top20_df)
 
     st.markdown("---")
@@ -226,13 +226,13 @@ def render_feature_selection_page():
     # --- Display Full Ranking ---
     if full_df is not None:
 
-        st.subheader("📋 Full ANOVA Feature Ranking")
+        st.subheader("Full ANOVA Feature Ranking")
         st.dataframe(
             full_df.sort_values("ANOVA_F_score", ascending=False)
         )
 
         # Bar chart for top-20
-        st.subheader("📈 Top-20 Features — F-score Bar Chart")
+        st.subheader("Top-20 Features — F-score Bar Chart")
 
         chart_df = full_df.sort_values("ANOVA_F_score", ascending=False).head(20)
         st.bar_chart(chart_df.set_index("Feature")["ANOVA_F_score"])
@@ -251,7 +251,7 @@ def main():
     st.sidebar.title("Navigation")
     page = st.sidebar.radio(
         "Go to:",
-        ["Overview", "Model Results", "Feature Selection (ANOVA)"]   # ⭐ NEW
+        ["Overview", "Model Results", "Feature Selection (ANOVA)"]   # NEW
     )
 
     if page == "Overview":
@@ -260,7 +260,7 @@ def main():
     elif page == "Model Results":
         render_model_results_page(results)
 
-    else:  # ⭐ NEW PAGE
+    else:  # NEW PAGE
         render_feature_selection_page()
 
 
